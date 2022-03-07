@@ -320,6 +320,12 @@ func (t *DocTree) MarkDeprecated() error {
 		return err
 	}
 
+	for _, c := range t.Children {
+		if err := c.MarkDeprecated(); err != nil {
+			return err
+		}
+	}
+
 	t.DocInfo.Title = newDocName
 	t.DocInfo.Version = newDocVersion
 

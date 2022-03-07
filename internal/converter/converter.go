@@ -34,10 +34,10 @@ func (c *Converter) Execute() error {
 	if err := c.ClearTempDocs(); err != nil {
 		return err
 	}
-	if err := c.ConvertRepos(); err != nil {
+	if err := c.DeprecateDocs(); err != nil {
 		return err
 	}
-	if err := c.DeprecateDocs(); err != nil {
+	if err := c.ConvertRepos(); err != nil {
 		return err
 	}
 	if err := c.ClearTempDocs(); err != nil {
